@@ -16,7 +16,7 @@ body {
 
 .initListMain .header input {
     padding: 5px 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #ECECEC;
     width: 120px;
     border-radius: 3px;
     overflow: hidden;
@@ -27,9 +27,9 @@ body {
     padding: 10px 15px 10px 15px;
     margin: 10px;
     margin-right: 0px;
-    background-color: #ccc;
-    color: #FFF;
-    border: 2px solid #ccc;
+    background-color: #ECECEC;
+    color: #333;
+    border: 2px solid #ECECEC;
     cursor: pointer;
     border-radius: 5%;
 }
@@ -47,6 +47,10 @@ body {
     border-radius: 5px;
     list-style: none;
     font-size: 13px;
+}
+
+.initListMain .theList li span {
+    text-align: left;
 }
 
 ul.theList {
@@ -94,5 +98,5 @@ ul.theList {
 }
 
 .downed {
-    background-color: rgba(127, 127, 127, 0.5);
+    background-color: #ECECEC;
 }

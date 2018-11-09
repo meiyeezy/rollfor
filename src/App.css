@@ -1,10 +1,11 @@
-.App {
+h1, #logoHolder {
   text-align: center;
 }
 
 .logo {
   animation: spin infinite 20s linear;
   max-width: 100px;
+  align-items: center;
 }
 
 @keyframes spin {

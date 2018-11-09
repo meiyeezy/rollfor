@@ -24,7 +24,6 @@ class InitListEntries extends Component {
             var filteredKeys = this.state.activeKeys.filter(a => a !== newKey);
             this.setState({activeKeys: filteredKeys});
         }
-        console.log(this.state.activeKeys); //print out arrays
     }
 
     //TODO: add 'downed' option
@@ -32,7 +31,7 @@ class InitListEntries extends Component {
         return <li  className={(this.state.activeKeys.indexOf(item.key) !== -1 && 'downed')  || item.alig}
                     key={item.key}
                     onClick={this.handleClick.bind(this, item.key)}>
-                    <b>{item.text}</b> – {item.init}
+                    <span><b>{item.text}</b> – {item.init} </span>
                 <button className="destroy" onClick={() => this.delete(item.key)}>x</button>   
                 </li>    
     }
