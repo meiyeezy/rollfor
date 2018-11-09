@@ -3,24 +3,24 @@ import React, { Component } from "react";
 class InitListEntries extends Component {
     constructor(props) {
         super(props);
-        this.state = {addClass: false};
+        this.state = {activeKey: null};
         this.createTasks = this.createTasks.bind(this);
-        this.handleClick = this.handleClick.bind(this)
     }
 
     delete(key) {
         this.props.delete(key);
     }
 
-    handleClick() {
-        this.setState({addClass: !this.state.addClass});
+    handleClick(key) {
+        let activeKey = this.state.activeKey === key ? null : key;
+        this.setState({activeKey});
     }
 
     //TODO: add 'downed' option
     createTasks(item) {
-        return <li  className={this.state.addClass ? "downed" : item.alig}
+        return <li  className={this.state.activeKey === item.key && 'downed' || item.alig}
                     key={item.key}
-                    onClick={this.handleClick}>
+                    onClick={this.handleClick.bind(this, item.key)}>
                     <b>{item.text}</b> – {item.init}
                 <button className="destroy" onClick={() => this.delete(item.key)}>x</button>   
                 </li>    
