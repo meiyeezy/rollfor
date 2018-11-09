@@ -49,7 +49,6 @@ class InitiativeList extends Component {
             this._inputElement.value = "";
             this._inputInit.value = "";
         }
-        console.log(this.state.items);
         //prevents page refresh
         e.preventDefault();
     }

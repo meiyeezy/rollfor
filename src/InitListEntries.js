@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class InitListEntries extends Component {
     constructor(props) {
         super(props);
-        this.state = {activeKey: null};
+        this.state = {activeKeys: []};
         this.createTasks = this.createTasks.bind(this);
     }
 
@@ -12,13 +12,24 @@ class InitListEntries extends Component {
     }
 
     handleClick(key) {
-        let activeKey = this.state.activeKey === key ? null : key;
-        this.setState({activeKey});
+        var newKey = key;
+
+        if (this.state.activeKeys.indexOf(newKey) === -1) { //if key does not exist in array
+            this.setState((prevState) => {
+                return {
+                    activeKeys: prevState.activeKeys.concat(newKey) //add key to array
+                };
+            })
+        } else if (this.state.activeKeys.indexOf(newKey) !== -1) {
+            var filteredKeys = this.state.activeKeys.filter(a => a !== newKey);
+            this.setState({activeKeys: filteredKeys});
+        }
+        console.log(this.state.activeKeys); //print out arrays
     }
 
     //TODO: add 'downed' option
     createTasks(item) {
-        return <li  className={this.state.activeKey === item.key && 'downed' || item.alig}
+        return <li  className={(this.state.activeKeys.indexOf(item.key) !== -1 && 'downed')  || item.alig}
                     key={item.key}
                     onClick={this.handleClick.bind(this, item.key)}>
                     <b>{item.text}</b> – {item.init}
