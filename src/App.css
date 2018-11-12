@@ -26,7 +26,8 @@ a:visited {
 
 .logo {
   animation: spin infinite 20s linear;
-  max-width: 100px;
+  max-width: 150px;
+  color: #333;
   align-items: center;
 }
 
