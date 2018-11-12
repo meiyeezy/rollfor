@@ -29,12 +29,6 @@ class InitiativeList extends Component {
                 key: Date.now()
             };
 
-            if (this._inputAlig.value === 'ally') {
-                //TODO: assign 'ally' class that changes background-color of .theList
-            } else if (this._inputAlig.value === 'enemy') {
-                //TODO: change bg colour to red
-            }
-
             this.setState((prevState) => {
                 return {
                     items: prevState.items.concat(newItem)
